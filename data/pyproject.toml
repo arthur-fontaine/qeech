@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "qeech-data"
+version = "0.1.0"
+description = ""
+authors = ["Arthur Fontaine <0arthur.fontaine@gmail.com>", "Alexandre Grodent <alexandregrodent@gmail.com"]
+readme = "README.md"
+packages = [{include = "qeech_data"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
