@@ -12,6 +12,7 @@ kaggle = "^1.5.16"
 python-dotenv = "^1.0.0"
 
 [tool.poetry.scripts]
+qeech = "qeech_data.adapters.cli.cli:main"
 load-data = "qeech_data.load_data:load_data"
 
 [build-system]
