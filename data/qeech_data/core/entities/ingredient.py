@@ -1,5 +1,11 @@
 class Ingredient:
-    id: int
+    name: str
+
+    def __init__(
+        self,
+        name: str,
+    ):
+        self.name = name
 
     def __eq__(self, other):
-        return self.id == other.id
+        return self.name == other.name

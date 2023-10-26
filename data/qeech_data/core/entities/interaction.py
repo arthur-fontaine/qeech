@@ -14,3 +14,14 @@ class Interaction:
 
     user: User
     recipe: Recipe
+
+    def __init__(
+        self,
+        date: datetime,
+        user: User,
+        recipe: Recipe,
+    ):
+        self.date = date
+
+        self.user = user
+        self.recipe = recipe

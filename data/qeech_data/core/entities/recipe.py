@@ -13,8 +13,16 @@ class Recipe:
     id: int
     name: str
 
-    ingredients: list[Ingredient]
-    interactions: list[Interaction]
+    ingredients: list[Ingredient] = None # type: ignore
+    interactions: list[Interaction] = None # type: ignore
+
+    def __init__(
+        self,
+        id: int,
+        name: str,
+    ):
+        self.id = id
+        self.name = name
 
     def get_expected_period(self) -> tuple[int, int]:
         season_ranges: list[tuple[int, int]] = [
@@ -36,6 +44,9 @@ class Recipe:
         )
 
     def get_average_interaction_period(self) -> float:
+        if self.interactions is None:
+            raise Exception("Interactions not loaded")
+
         average_interaction_period = 0
         for interaction in self.interactions:
             interaction_year_datetime = datetime(interaction.date.year, 1, 1)
