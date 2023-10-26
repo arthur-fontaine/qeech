@@ -38,7 +38,7 @@ def __create_database() -> Database:
     df_interactions = load_data("RAW_interactions")
     df_recipes = load_data("RAW_recipes")
 
-    for _, row in df_recipes.iterrows():
+    for row in df_recipes.iter_rows(named=True):
         recipe = Recipe(
             id=row["id"],
             name=row["name"],
@@ -59,7 +59,7 @@ def __create_database() -> Database:
 
                 recipe.ingredients.append(ingredient)
 
-    for _, row in df_interactions.iterrows():
+    for row in df_interactions.iter_rows(named=True):
         if row["recipe_id"] not in __recipes:
             continue
 
