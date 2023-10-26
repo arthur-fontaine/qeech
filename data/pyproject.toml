@@ -8,7 +8,11 @@ packages = [{include = "qeech_data"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+kaggle = "^1.5.16"
+python-dotenv = "^1.0.0"
 
+[tool.poetry.scripts]
+load-data = "qeech_data.load_data:load_data"
 
 [build-system]
 requires = ["poetry-core"]
