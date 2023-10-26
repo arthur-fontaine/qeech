@@ -1,3 +1,4 @@
+from qeech_data.core.entities.ingredient import Ingredient
+
 class Recipe:
-    def __init__(self) -> None:
-        pass
+    ingredients: list[Ingredient]
