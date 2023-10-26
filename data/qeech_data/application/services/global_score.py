@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import networkx as nx
 from datetime import datetime
 
@@ -5,9 +7,13 @@ from qeech_data.application.services.diet_score import diet_score
 from qeech_data.application.services.habits_score import habits_score
 from qeech_data.application.services.ingredients_score import ingredients_score
 from qeech_data.application.services.season_score import season_score
-from qeech_data.core.entities.ingredient import Ingredient
-from qeech_data.core.entities.recipe import Recipe
-from qeech_data.core.entities.user import User
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from qeech_data.core.entities.ingredient import Ingredient
+    from qeech_data.core.entities.recipe import Recipe
+    from qeech_data.core.entities.user import User
 
 
 def global_score(

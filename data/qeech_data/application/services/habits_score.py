@@ -1,7 +1,12 @@
-import networkx as nx
-from qeech_data.core.entities.recipe import Recipe
+from __future__ import annotations
 
-from qeech_data.core.entities.user import User
+import networkx as nx
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from qeech_data.core.entities.recipe import Recipe
+    from qeech_data.core.entities.user import User
 
 
 def habits_score(recipe: Recipe, *, user: User, recipes_graph: nx.Graph) -> float:

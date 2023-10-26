@@ -1,6 +1,11 @@
+from __future__ import annotations
+
 from datetime import datetime
 
-from qeech_data.core.entities.recipe import Recipe
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from qeech_data.core.entities.recipe import Recipe
 
 def season_score(recipe: Recipe, *, date: datetime):
     average_recipe_date = recipe.get_average_interaction_period()

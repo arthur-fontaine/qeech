@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 import networkx as nx
 
-from qeech_data.core.entities.recipe import Recipe
-from qeech_data.core.entities.user import User
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from qeech_data.core.entities.recipe import Recipe
+    from qeech_data.core.entities.user import User
 
 
 def create_recipes_graph(recipes: list[Recipe], users: list[User]) -> nx.Graph:

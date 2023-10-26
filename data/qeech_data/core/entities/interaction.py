@@ -1,7 +1,12 @@
-from datetime import datetime
+from __future__ import annotations
 
-from qeech_data.core.entities.user import User
-from qeech_data.core.entities.recipe import Recipe
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from datetime import datetime
+
+    from qeech_data.core.entities.user import User
+    from qeech_data.core.entities.recipe import Recipe
 
 
 class Interaction:
