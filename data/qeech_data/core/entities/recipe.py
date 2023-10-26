@@ -40,3 +40,6 @@ class Recipe:
         average_interaction_period /= len(self.interactions)
 
         return average_interaction_period
+    
+    def __eq__(self, other):
+        return self.id == other.id
