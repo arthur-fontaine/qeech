@@ -1,3 +1,7 @@
+from qeech_data.core.entities.interaction import Interaction
+
+
 class User:
-    def __init__(self) -> None:
-        pass
+    id: int
+
+    interactions: list[Interaction]

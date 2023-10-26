@@ -5,6 +5,9 @@ from qeech_data.core.entities.interaction import Interaction
 
 
 class Recipe:
+    id: int
+    name: str
+
     ingredients: list[Ingredient]
     interactions: list[Interaction]
 
