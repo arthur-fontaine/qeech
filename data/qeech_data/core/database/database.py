@@ -1,0 +1,5 @@
+database = {
+    "users": [],
+    "ingredients": [],
+    "recipes": [],
+}
