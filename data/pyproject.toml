@@ -14,7 +14,7 @@ networkx = "^3.2"
 
 [tool.poetry.scripts]
 qeech = "qeech_data.adapters.cli.cli:main"
-load-data = "qeech_data.load_data:load_data"
+download-data = "qeech_data.download_data:download_data"
 
 [build-system]
 requires = ["poetry-core"]
