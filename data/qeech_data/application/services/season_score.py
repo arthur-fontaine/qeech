@@ -2,7 +2,7 @@ from datetime import datetime
 
 from qeech_data.core.entities.recipe import Recipe
 
-def season_score(recipe: Recipe, date: datetime):
+def season_score(recipe: Recipe, *, date: datetime):
     average_recipe_date = recipe.get_average_interaction_period()
 
     days_since_start_of_year = (date - datetime(date.year, 1, 1)).days
