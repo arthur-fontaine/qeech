@@ -7,6 +7,7 @@ from qeech_data.core.entities.ingredient import Ingredient
 from qeech_data.core.entities.interaction import Interaction
 from qeech_data.core.entities.recipe import Recipe
 from qeech_data.core.entities.user import User
+from qeech_data.core.logger.logger import Logger
 from qeech_data.core.utils.load_data import load_data
 
 
@@ -31,6 +32,8 @@ class Database:
 
 
 def __create_database() -> Database:
+    Logger.log_info("Creating database")
+
     __ingredients: dict[str, Ingredient] = {}
     __interactions: list[Interaction] = []
     __recipes: dict[int, Recipe] = {}
@@ -92,6 +95,8 @@ def __create_database() -> Database:
 
         user.interactions.append(interaction)
         recipe.interactions.append(interaction)
+
+    Logger.log_info("Database created")
 
     return Database(
         ingredients=list(__ingredients.values()),
