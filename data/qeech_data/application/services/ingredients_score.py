@@ -12,7 +12,7 @@ def ingredients_score(recipe: Recipe, *, available_ingredients: list[Ingredient]
     found_ingredients_counter = 0
     for recipe_ingredient in recipe_ingredients:
         for available_ingredient in available_ingredients:
-            if recipe_ingredient.id == available_ingredient.id:
+            if recipe_ingredient == available_ingredient:
                 found_ingredients_counter += 1
                 break
 

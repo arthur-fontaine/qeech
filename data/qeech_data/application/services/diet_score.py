@@ -11,7 +11,7 @@ def diet_score(recipe: Recipe, *, forbidden_ingredients: list[Ingredient]):
 
     for recipe_ingredient in recipe_ingredients:
         for forbidden_ingredient in forbidden_ingredients:
-            if recipe_ingredient.id == forbidden_ingredient.id:
+            if recipe_ingredient == forbidden_ingredient:
                 return 0
             
     return 1
