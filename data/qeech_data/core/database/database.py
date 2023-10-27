@@ -44,6 +44,9 @@ def __create_database() -> Database:
             id=row["id"],
             name=row["name"],
         )
+        recipe.interactions = []
+        recipe.ingredients = []
+
         __recipes[row["id"]] = recipe
 
         recipe_ingredients: list[str] = eval(row["ingredients"])
@@ -55,9 +58,6 @@ def __create_database() -> Database:
                 )
                 __ingredients[recipe_ingredient] = ingredient
 
-                if recipe.ingredients is None:
-                    recipe.ingredients = []
-
                 recipe.ingredients.append(ingredient)
 
     for row in df_interactions.iter_rows(named=True):
@@ -67,7 +67,10 @@ def __create_database() -> Database:
         if row["user_id"] not in __users:
             user = User(
                 id=row["user_id"],
+                username=str(row["user_id"]),
+                password=str(row["user_id"]),
             )
+            user.interactions = []
             user.available_ingredients = random.sample(
                 list(__ingredients.values()), random.randint(1, 50)
             )
@@ -87,14 +90,7 @@ def __create_database() -> Database:
         )
         __interactions.append(interaction)
 
-        if user.interactions is None:
-            user.interactions = []
-
         user.interactions.append(interaction)
-
-        if recipe.interactions is None:
-            recipe.interactions = []
-
         recipe.interactions.append(interaction)
 
     return Database(

@@ -9,6 +9,8 @@ if TYPE_CHECKING:
 
 class User:
     id: int
+    username: str
+    password: str
 
     interactions: list[Interaction] = None # type: ignore
     forbidden_ingredients: list[Ingredient] = None # type: ignore
@@ -17,8 +19,12 @@ class User:
     def __init__(
         self,
         id: int,
+        username: str,
+        password: str,
     ):
         self.id = id
+        self.username = username
+        self.password = password
 
     def __eq__(self, other):
         return self.id == other.id
