@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+import random
 
 from qeech_data.core.entities.ingredient import Ingredient
 from qeech_data.core.entities.interaction import Interaction
@@ -66,6 +67,12 @@ def __create_database() -> Database:
         if row["user_id"] not in __users:
             user = User(
                 id=row["user_id"],
+            )
+            user.available_ingredients = random.sample(
+                list(__ingredients.values()), random.randint(1, 50)
+            )
+            user.forbidden_ingredients = random.sample(
+                list(__ingredients.values()), random.randint(1, 50)
             )
             __users[row["user_id"]] = user
         else:

@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from qeech_data.core.entities.user import User
 
 
-def create_recipes_graph(recipes: list[Recipe], users: list[User]) -> nx.Graph:
+def create_recipes_graph(*, recipes: list[Recipe], users: list[User]) -> nx.Graph:
     graph = nx.Graph()
 
     graph.add_nodes_from(users, label="user")

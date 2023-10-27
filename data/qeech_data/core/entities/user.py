@@ -4,12 +4,15 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from qeech_data.core.entities.interaction import Interaction
+    from qeech_data.core.entities.ingredient import Ingredient
 
 
 class User:
     id: int
 
     interactions: list[Interaction] = None # type: ignore
+    forbidden_ingredients: list[Ingredient] = None # type: ignore
+    available_ingredients: list[Ingredient] = None # type: ignore
 
     def __init__(
         self,
