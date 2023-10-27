@@ -9,6 +9,9 @@ if TYPE_CHECKING:
 def ingredients_score(recipe: Recipe, *, available_ingredients: list[Ingredient]):
     recipe_ingredients = recipe.ingredients
 
+    if len(recipe_ingredients) == 0:
+        return 1
+
     found_ingredients_counter = 0
     for recipe_ingredient in recipe_ingredients:
         for available_ingredient in available_ingredients:
