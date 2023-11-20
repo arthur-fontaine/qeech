@@ -12,9 +12,12 @@ kaggle = "^1.5.16"
 python-dotenv = "^1.0.0"
 networkx = "^3.2"
 polars = "^0.19.11"
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
 
 [tool.poetry.scripts]
 qeech = "qeech_data.adapters.cli.cli:main"
+qeech-api = "qeech_data.adapters.api.api:main"
 download-data = "qeech_data.download_data:download_data"
 
 [build-system]

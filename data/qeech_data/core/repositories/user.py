@@ -14,3 +14,14 @@ class UserRepository:
                 return user
             
         raise Exception("User not found")
+    
+    @staticmethod
+    def get_by_id(user_id: int) -> User:
+        Logger.log_info(f"Getting user with id {user_id}")
+
+        for user in database.users:
+            if user.id == user_id:
+                Logger.log_info(f"Found user with id {user_id}")
+                return user
+            
+        raise Exception("User not found")
