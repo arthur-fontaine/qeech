@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
@@ -9,6 +10,8 @@ import RootStack from './src/navigation';
 import config from './tamagui.config';
 
 SplashScreen.preventAutoHideAsync();
+
+const queryClient = new QueryClient();
 
 export default function App() {
   const [loaded] = useFonts({
@@ -28,7 +31,9 @@ export default function App() {
 
   return (
     <TamaguiProvider config={config}>
-      <RootStack />
+      <QueryClientProvider client={queryClient}>
+        <RootStack />
+      </QueryClientProvider>
     </TamaguiProvider>
   );
 }
