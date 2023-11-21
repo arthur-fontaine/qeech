@@ -6,6 +6,9 @@ from qeech_data.adapters.api.handlers.get_recipe_recommendations import (
 )
 from qeech_data.adapters.api.handlers.login import login_router
 from qeech_data.adapters.api.handlers.get_recipe import get_recipe_router
+from qeech_data.adapters.api.handlers.get_recipe_image import (
+    get_recipe_image_router,
+)
 
 app = FastAPI()
 
@@ -13,6 +16,7 @@ app = FastAPI()
 app.include_router(login_router)
 app.include_router(get_recipe_recommentations_router)
 app.include_router(get_recipe_router)
+app.include_router(get_recipe_image_router)
 
 
 def main():

@@ -20,6 +20,8 @@ const query = <Schema extends valibot.BaseSchema>(
 ): Promise<valibot.Output<Schema>> => {
   const { token } = useAuthStore.getState();
 
+  console.log(`${API_URL}${url}`);
+
   return fetch(`${API_URL}${url}`, {
     method: 'POST',
     body: JSON.stringify(body),
@@ -45,6 +47,47 @@ export const api = {
       { username, password },
       valibot.object({
         token: valibot.string(),
+      })
+    );
+  },
+
+  getRecipeRecommendations() {
+    return query(
+      '/get-recipe-recommendations',
+      {},
+      valibot.object({
+        recommended_recipes: valibot.array(
+          valibot.object({
+            name: valibot.string(),
+            id: valibot.number(),
+            score: valibot.number(),
+          })
+        ),
+      })
+    );
+  },
+
+  getRecipe(recipeId: number) {
+    return query(
+      '/get-recipe',
+      { recipe_id: recipeId },
+      valibot.object({
+        name: valibot.string(),
+        ingredients: valibot.array(
+          valibot.object({
+            name: valibot.string(),
+          })
+        ),
+      })
+    );
+  },
+
+  getRecipeImage(recipeId: number) {
+    return query(
+      '/get-recipe-image',
+      { recipe_id: recipeId },
+      valibot.object({
+        recipe_image_url: valibot.string(),
       })
     );
   },

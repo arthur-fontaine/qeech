@@ -15,6 +15,11 @@ class Recipe:
 
     ingredients: list[Ingredient] = None # type: ignore
     interactions: list[Interaction] = None # type: ignore
+    
+    @property
+    def url(self) -> str:
+        recipe_slug = self.name.lower().replace(r" +", "-")
+        return f"https://www.food.com/recipe/{recipe_slug}-{self.id}"
 
     def __init__(
         self,

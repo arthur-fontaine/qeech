@@ -5,12 +5,12 @@ from qeech_data.core.repositories.recipe import RecipeRepository
 get_recipe_router = APIRouter(prefix="/get-recipe")
 
 
-class GetRecipeRecommendationsBody(BaseModel):
+class GetRecipeBody(BaseModel):
     recipe_id: int
 
 
 @get_recipe_router.post("")
-def get_recipe(body: GetRecipeRecommendationsBody):
+def get_recipe(body: GetRecipeBody):
     recipe = RecipeRepository.get_by_id(body.recipe_id)
 
     return {

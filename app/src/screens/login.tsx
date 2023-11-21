@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
-import { Button, Input } from 'tamagui';
+import { Button, Input, YStack } from 'tamagui';
 
 import { Container, Main } from '../../tamagui.config';
 import { RootStackParamList } from '../navigation';
@@ -32,23 +32,25 @@ export default function Login() {
   return (
     <Container>
       <Main>
-        <Input
-          onChangeText={(username: string) => setIdentifiers({ ...identifiers, username })}
-          placeholder="Username"
-          defaultValue={identifiers.username}
-        />
-        <Input
-          onChangeText={(password: string) => setIdentifiers({ ...identifiers, password })}
-          placeholder="Password"
-          defaultValue={identifiers.password}
-          secureTextEntry
-        />
-        <Button
-          onPress={() => {
-            login.mutate(identifiers);
-          }}>
-          Login
-        </Button>
+        <YStack justifyContent="flex-start" gap={24}>
+          <Input
+            onChangeText={(username: string) => setIdentifiers({ ...identifiers, username })}
+            placeholder="Username"
+            defaultValue={identifiers.username}
+          />
+          <Input
+            onChangeText={(password: string) => setIdentifiers({ ...identifiers, password })}
+            placeholder="Password"
+            defaultValue={identifiers.password}
+            secureTextEntry
+          />
+          <Button
+            onPress={() => {
+              login.mutate(identifiers);
+            }}>
+            Login
+          </Button>
+        </YStack>
       </Main>
     </Container>
   );
