@@ -62,6 +62,9 @@ def __create_database() -> Database:
                 __ingredients[recipe_ingredient] = ingredient
 
                 recipe.ingredients.append(ingredient)
+            else:
+                ingredient = __ingredients[recipe_ingredient]
+                recipe.ingredients.append(ingredient)
 
     for row in df_interactions.iter_rows(named=True):
         if row["recipe_id"] not in __recipes:
